@@ -19,6 +19,6 @@ class EaterSpider(scrapy.Spider):
             item['description'] = u"{}. {}".format(response.css('h1::text').extract_first(), response.css('h2::text').extract_first())
             item['date'] = response.css('span.p-byline__time::text').extract_first()
             item['address'] = response.css('div.m-review-scratch__contact-group p::text').extract_first()
-            item['source'] = 'eater'
+            item['source'] = 'Eater Reviews'
             item['source_url'] = response.url
             yield item

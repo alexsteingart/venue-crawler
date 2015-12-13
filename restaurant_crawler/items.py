@@ -7,3 +7,4 @@ class RestaurantItem(scrapy.Item):
     address = scrapy.Field()
     source = scrapy.Field()
     source_url = scrapy.Field()
+    source_title = scrapy.Field()
