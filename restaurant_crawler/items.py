@@ -5,3 +5,5 @@ class RestaurantItem(scrapy.Item):
     description = scrapy.Field()
     date = scrapy.Field()
     address = scrapy.Field()
+    source = scrapy.Field()
+    source_url = scrapy.Field()
