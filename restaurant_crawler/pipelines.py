@@ -23,5 +23,10 @@ class MongoPipeline(object):
         self.client.close()
 
     def process_item(self, item, spider):
-        self.db[self.collection_name].insert(dict(item))
+        ditem = dict(item)
+        doc = self.db[self.collection_name].find_one({ 'source': ditem['source'], 'name': ditem['name']})
+        if doc:
+            doc.update(ditem)
+            ditem = doc
+        self.db[self.collection_name].save(ditem)
         return item
