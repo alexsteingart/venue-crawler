@@ -20,4 +20,5 @@ class NYMagSpider(scrapy.Spider):
             item['address'] = response.css('meta[name=nyml_address]::attr(content)').extract_first() + ', ' + response.css('meta[name=nyml_address_city]::attr(content)').extract_first() + ', ' + response.css('meta[name=nyml_address_state]::attr(content)').extract_first() + ', ' + response.css('meta[name=nyml_address_zip]::attr(content)').extract_first()
             item['source'] = 'NYMag Critic\'s Picks'
             item['source_url'] = response.url
+            item['cuisine'] = response.css('meta[name=nyml_restaurant_cuisine]::attr(content)').extract_first().split(', ')
             yield item

@@ -8,3 +8,4 @@ class RestaurantItem(scrapy.Item):
     source = scrapy.Field()
     source_url = scrapy.Field()
     source_title = scrapy.Field()
+    cuisine = scrapy.Field()
